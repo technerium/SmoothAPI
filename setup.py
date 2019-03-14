@@ -9,20 +9,20 @@ README = (HERE / 'README.md').read_text()
 
 # This call to setup() does all the work
 setup(
-    name='anyapi',
-    version='1.1.3',
+    name='SmoothAPI',
+    version='1.0.0',
     description='An API Wrapper For Every API',
     long_description=README,
     long_description_content_type='text/markdown',
-    url='https://github.com/FKLC/AnyAPI',
-    author='Fatih Kılıç',
-    author_email='m.fatihklc0@gmail.com',
+    url='https://github.com/technerium/SmoothAPI',
+    author='Technerium',
+    author_email='technerium@gmail.com',
     license='MIT',
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    packages=['anyapi'],
+    packages=['SmoothAPI'],
     install_requires=['requests']
 )

@@ -1,0 +1,6 @@
+dist
+vendored
+*.egg-info
+.idea/
+*.iml
+*.pyc

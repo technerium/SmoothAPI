@@ -1,6 +1,6 @@
 from oauth2client.client import flow_from_clientsecrets
 from requests_oauth2 import OAuth2BearerToken
-from anyapi import AnyAPI
+from SmoothAPI import AnyAPI
 
 flow = flow_from_clientsecrets(
     'client_secrets.json',
