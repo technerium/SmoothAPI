@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 import requests
 
 
-class AnyAPI:
+class SmoothAPI:
     HTTP_METHODS = ['GET', 'POST', 'HEAD', 'PUT', 'DELETE', 'OPTIONS', 'PATCH']
 
     def __init__(self,
@@ -126,7 +126,7 @@ class AnyAPI:
         if path.startswith('__'):
             raise AttributeError(path)
 
-        if path in AnyAPI.HTTP_METHODS:
+        if path in SmoothAPI.HTTP_METHODS:
             return (lambda params={}, headers={}, data={}, json={}, auth=(),
                     url='': self._make_request(
                         path=self._recursive_path,
