@@ -2,6 +2,9 @@ class NoProxy:
     def get(self, _):
         return None
 
+    def ban_proxy(self, proxies):
+        return None
+
 
 class RateLimitProxy:
     def __init__(self, proxies, paths, default=None):
@@ -23,3 +26,7 @@ class RateLimitProxy:
             return {"http": proxy, "https": proxy}
 
         return self.default
+
+    def ban_proxy(self, proxies):
+        self.proxies = list(filter(lambda a: a not in [proxies.get("http", ''), proxies.get("https", '')], self.proxies))
+        return None

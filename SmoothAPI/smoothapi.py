@@ -1,6 +1,7 @@
 from urllib.parse import urlparse
 
 import requests
+from requests.exceptions import ProxyError
 
 from .chain import Chain
 from .proxy_handlers import NoProxy
@@ -58,11 +59,16 @@ class SmoothAPI:
         )
 
         if self.__scoped_call is not None:
-            response = self.__scoped_call(
-                lambda: getattr(self.__session, method.lower())(
-                    url=url, *args, **kwargs
+            try:
+                response = self.__scoped_call(
+                    lambda: getattr(self.__session, method.lower())(
+                        url=url, *args, **kwargs
+                    )
                 )
-            )
+            except ProxyError as e:
+                print('Proxy error: {}'.format(str(e)))
+                self.__proxy_handler.ban_proxy(self.__session.proxies)
+                response = self._make_request(method, path, *args, **kwargs)
         else:
             response = getattr(self.__session, method.lower())(url=url, *args, **kwargs)
 
