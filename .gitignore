@@ -2,5 +2,6 @@ dist
 vendored
 *.egg-info
 .idea/
+build/
 *.iml
 *.pyc
